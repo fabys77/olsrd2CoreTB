@@ -7,3 +7,4 @@ Using test bench:
 - modify corennx/oonf.py to point right path for installation of oonf
 - modify /etc/core/core.conf line "custom_services_dir = /foo/bar/corennx" to point provided polder
 - start Core and load Olsr2TestBed.imn
+- follow last slide
