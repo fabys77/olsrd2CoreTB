@@ -6,4 +6,4 @@ Using test bench:
 - Install OLSRd2: http://www.olsr.org/mediawiki/index.php/Olsrd2
 - modify corennx/oonf.py to point right path for installation of oonf
 - modify /etc/core/core.conf line "custom_services_dir = /foo/bar/corennx" to point provided polder
-- start Core and load Olsr2TestBec.inm
+- start Core and load Olsr2TestBed.imn
