@@ -56,15 +56,15 @@ fi
 #Fiirst evaluate local routes
 ip rule add from all lookup 110 pref 30
 #Private routes to OLSRv2 table
-ip rule add to 10.100.0.0/14 table 111 pref 35
+ip rule add to 10.16.0.0/14 table 111 pref 35
 #Private routes to OLSRv1 table
 ip rule add to 10.0.0.0/8 table 222 pref 40
 ip rule add to 172.16.0.0/12 table 222 pref 40
 ip rule add to 192.168.0.0/16 table 222 pref 40
 #Ninux IP Addresses to OLSRv2 table
-ip rule add to 176.62.53.0/24 table 111 pref 41
-ip rule add from 176.62.53.0/24 table 111 pref 41
-#Ninux IP Address yo OLSR v1
+#ip rule add to <AUTOMATIC> table 111 pref 41
+#ip rule add from <AUTOMATIC> table 111 pref 41
+#Ninux IP Address to OLSR v1
 ip rule add to 176.62.53.0/24 table 222 pref 42
 ip rule add from 176.62.53.0/24 table 222 pref 42
 #main and blackholes
@@ -80,9 +80,10 @@ ip rule add from all lookup 254 pref 60
 
 	cfg+='''\
 #default annunciata su olsrV2 (ipotesi chi ha V1 ha anche v2)
-ip rule add from 10.100.0.0/14 lookup 112 pref 85
+ip rule add from 10.16.0.0/14 lookup 112 pref 85
 #Percorso verso i BGP dei pubblici
-ip rule add from 176.62.53.0/24 lookup 150 pref 90
+#ip rule add from <AUTOMATIC> lookup 150 pref 90
+ip rule add iif lo lookup 224 pref 91
 #default annunciata su olsrV1
 ip rule add from all lookup 223 pref 100
 #Blackhole private aggregates

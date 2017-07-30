@@ -44,7 +44,7 @@ class MyServiceOONF(CoreService):
         cfg += "[domain=151]\n\ttable 151\n"
         cfg += "[domain=152]\n\ttable 152\n"
         cfg += "[domain=153]\n\ttable 153\n"
-        cfg += "[domain=154]\n\ttable 155\n"
+        cfg += "[domain=154]\n\ttable 154\n"
         cfg += "[olsrv2]\n"
         for ifc in node.netifs():
 	    if not(hasattr(ifc.net, 'type')):
