@@ -1,22 +1,22 @@
 #!/bin/bash
 
 addtables () {
-echo "Da aggiungere" >>$3
+echo "ToAdd" >>$3
 echo "Table: $1" >>$3
 echo "Route: $2" >>$3
-ip rule add to $2 table 111 pref 241
-ip rule add from $2 table 111 pref 241
+ip rule add to $2 table 111 pref 38
+ip rule add from $2 table 111 pref 38
 #verso BGP
 ip rule add from $2 lookup $1 pref 90
 }
 
 
 deltables () {
-echo "Da levare" >>$3
+echo "ToRemove" >>$3
 echo "Table: $1" >>$3
 echo "Route: $2" >>$3
-ip rule del to $2 table 111 pref 41
-ip rule del from $2 table 111 pref 41
+ip rule del to $2 table 111 pref 38
+ip rule del from $2 table 111 pref 38
 #verso BGP
 ip rule del from $2 lookup $1 pref 90
 }
